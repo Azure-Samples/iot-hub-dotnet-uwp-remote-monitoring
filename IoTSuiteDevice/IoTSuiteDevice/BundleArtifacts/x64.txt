@@ -1,0 +1,2 @@
+MainPackage=C:\IoT\IoTSuiteDevice\IoTSuiteDevice\bin\x64\Debug\IoTSuiteDevice_1.0.15.0_x64_Debug.appx
+SymbolPackage=C:\IoT\IoTSuiteDevice\IoTSuiteDevice\AppPackages\IoTSuiteDevice_1.0.15.0_Debug_Test\IoTSuiteDevice_1.0.15.0_x64_Debug.appxsym
