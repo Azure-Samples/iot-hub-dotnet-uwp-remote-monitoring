@@ -1,4 +1,0 @@
-MainPackage=C:\IoT\IoTSuiteDevice\IoTSuiteDevice\bin\ARM\Debug\IoTSuiteDevice_1.0.15.0_ARM_Debug.appx
-SymbolPackage=C:\IoT\IoTSuiteDevice\IoTSuiteDevice\AppPackages\IoTSuiteDevice_1.0.15.0_Debug_Test\IoTSuiteDevice_1.0.15.0_ARM_Debug.appxsym
-ResourcePack=C:\IoT\IoTSuiteDevice\IoTSuiteDevice\bin\ARM\Debug\IoTSuiteDevice_1.0.15.0_scale-100.appx
-ResourcePack=C:\IoT\IoTSuiteDevice\IoTSuiteDevice\bin\ARM\Debug\IoTSuiteDevice_1.0.15.0_scale-400.appx
