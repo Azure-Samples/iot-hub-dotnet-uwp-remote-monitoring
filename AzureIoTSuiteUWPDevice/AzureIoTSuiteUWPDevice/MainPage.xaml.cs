@@ -216,35 +216,6 @@ namespace AzureIoTSuiteUWPDevice
 
             thermostat.DeviceProperties = device;
 
-            Command PingDevice = new Command();
-            PingDevice.Name = "PingDevice";
-            Command StartTelemetry = new Command();
-            StartTelemetry.Name = "StartTelemetry";
-            Command StopTelemetry = new Command();
-            StopTelemetry.Name = "StopTelemetry ";
-
-            Command ChangeSetPointTemp = new Command();
-            ChangeSetPointTemp.Name = "ChangeSetPointTemp";
-            CommandParameter SetPointTemp = new CommandParameter();
-            SetPointTemp.Name = "SetPointTemp";
-            SetPointTemp.Type = "double";
-            ChangeSetPointTemp.Parameters = new CommandParameter[] { SetPointTemp };
-
-            Command DiagnosticTelemetry = new Command();
-            DiagnosticTelemetry.Name = "DiagnosticTelemetry";
-            CommandParameter Active = new CommandParameter();
-            Active.Name = "Active";
-            Active.Type = "boolean";
-            DiagnosticTelemetry.Parameters = new CommandParameter[] { Active };
-
-            Command ChangeDeviceState = new Command();
-            ChangeDeviceState.Name = "ChangeDeviceState";
-            CommandParameter DeviceState = new CommandParameter();
-            DeviceState.Name = "DeviceState";
-            DeviceState.Type = "string";
-            ChangeDeviceState.Parameters = new CommandParameter[] { DeviceState };
-
-
             Command TriggerAlarm = new Command();
             TriggerAlarm.Name = "TriggerAlarm";
             CommandParameter param = new CommandParameter();
@@ -252,9 +223,7 @@ namespace AzureIoTSuiteUWPDevice
             param.Type = "String";
             TriggerAlarm.Parameters = new CommandParameter[] { param };
 
-            //            thermostat.Commands = new Command[] { PingDevice, StartTelemetry, StopTelemetry , ChangeSetPointTemp, DiagnosticTelemetry, ChangeDeviceState, TriggerAlarm };
-            thermostat.Commands = new Command[] { StartTelemetry, TriggerAlarm };
-
+            thermostat.Commands = new Command[] { TriggerAlarm };
 
             try
             {
@@ -326,8 +295,6 @@ namespace AzureIoTSuiteUWPDevice
                         await deviceClient.RejectAsync(message);
                     }
                 }
-                //                await Task.Delay(1000);
-
             }
         }
 
