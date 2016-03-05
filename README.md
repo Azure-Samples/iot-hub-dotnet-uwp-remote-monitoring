@@ -5,47 +5,53 @@ author: olivierbloch
 ---
 
 # iot-hub-dotnet-uwp-remote-monitoring
+
 This sample shows how to run and connect a Universal Windows Platform application to an Azure IoT Suite Remote Monitoring Preconfigured Solution.
 This sample is usefull to try or demonstrate Azure IoT Suite. Here are some links to learn more on [Azure IoT Suite](https://azure.microsoft.com/en-us/documentation/suites/iot-suite/) and [Azure IoT Suite preconfigured solutions](https://azure.microsoft.com/en-us/documentation/articles/iot-suite-what-are-preconfigured-solutions/).
 
 ## Running this sample
 ### Hardware prerequisites
+
 In order to run this sample you will need the following hardware:
 
    - A PC running Windows 10
    - [optional] A Windows 10 mobile device if you want to deploy the application on such a device.
 
 ### Software prerequisites
+
 [Visual Studio 2015](https://www.visualstudio.com/) with [Windows 10 SDK](https://dev.windows.com/en-US/downloads/windows-10-sdk)
 
 ### Settings prerequisites
+
 You will need to setup your Windows 10 OS to developer mode.
 
    - On Windows 10 PC:
-      - Click on the Windows Icon, 
-      - Type `For Developers Settings` and press enter.
-      - In the **Developers Settings** section, select the option **Developer Mode**
+      1. Click on the Windows Icon, 
+      1. Type `For Developers Settings` and press enter.
+      1. In the **Developers Settings** section, select the option **Developer Mode**
    - On Windows 10 Mobile (if you plan to deploy to a phone running Windows 10 mobile)
-      - Touch the search button
-      - Type `Settings` and touch the **Settings** icon to enter the settings panel
-      - Scroll down to **Update & Security**, then Developers and select the **Developer mode** option
+      1. Touch the search button
+      1. Type `Settings` and touch the **Settings** icon to enter the settings panel
+      1. Scroll down to **Update & Security**, then Developers and select the **Developer mode** option
 
 ## Deploy an Azure IoT Suite Remote Monitoring preconfigured solution
+
 In order to deploy an Azure IoT Suite precongigured solution, you need an Azure subscription. If you don't have one, you can easily create a [free trial subscription](https://azure.microsoft.com/en-us/free/).
 This [article](https://azure.microsoft.com/en-us/documentation/articles/iot-suite-getstarted-preconfigured-solutions/) describes in details how to get started with Azure IoT Suite Remote Monitoring preconfigured solutions, but if you want the short version, see below.
 Once you have an Azure subscription, browse to [http://www.azureiotsuite.com](http://www.azureiotsuite.com)
 Once logged in using your Azure subscription credentials:
 
-   - Click on **Create a new solution**.
-   - Select **Remote Monitoring**
-   - Enter a solution name
-   - Select a region for your solution to be hosted in
-   - Select your subscription (if you have several subscription for the account your logged in with)
-   - Click on **Create solution** at the bottom
+   1. Click on **Create a new solution**.
+   1. Select **Remote Monitoring**
+   1. Enter a solution name
+   1. Select a region for your solution to be hosted in
+   1. Select your subscription (if you have several subscription for the account your logged in with)
+   1. Click on **Create solution** at the bottom
 
 It will take several minutes to deploy all the services of the solution, in the meantime, you can get device application ready.
 
 ## Run the device application on Windows 10 PC and mobile
+
 In order to run the device application on your PC, here are the few steps:
 
 1. Clone or download the github repository (see links on top)
@@ -66,6 +72,7 @@ In order to run the device application on your PC, here are the few steps:
       - Press F5
 
 ## Create a device ID for your UWP device application in Azure IoT Suite Remote Monitoring preconfigured solution
+
 At this point the Remote Monitoring solution should be deployed (if not, go get a coffee).
 
 ```
@@ -77,16 +84,17 @@ Navigating the Remote Monitoring dahboard and creating a device ID is extensivel
 Once you have created a new device ID, copy the Device ID, Host Name and Device Key from the IoT Suite into the UWP application.
 
 ## Use the application
+
 The UWP device application is dead simple.
 
-   - Connecting to IoT Suite:
+   1. Connecting to IoT Suite:
       - Enter the credentials generated in previous steps in the corresponding fields of the app.
       - Press the "Press to Connect To IoT Suite" button.
       - At this point you should see the device metadata appear in the IoT Suite dashboard under the **devices** tab.
-   - Sending telemetry data
+   1. Sending telemetry data
       - Press the **Press to send data to IoT Suite** button.
       - Data will start showing up in the IoT Suite dashboard. You can play with the sliders to change the values
-   - Receiving messages from IoT Suite on the device
+   1. Receiving messages from IoT Suite on the device
       - In the IoT Suite dashboard, go to the **Devices** tab
       - Select your device
       - In the right menu, press on **Commands**
