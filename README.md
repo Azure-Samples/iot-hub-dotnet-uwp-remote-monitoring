@@ -75,6 +75,8 @@ In order to run the device application on your PC, here are the few steps:
 
 At this point the Remote Monitoring solution should be deployed (if not, go get a coffee).
 
+![](https://raw.githubusercontent.com/Azure-Samples/iot-hub-dotnet-uwp-remote-monitoring/master/Media/IoTSuiteSolution.PNG)
+
 ```
 Important: we are not using the simulated devices that are automatically deployed as part of the remote monitoring solution. It is recommended to deactivate all the simulated devices from the Devices tab in the dashboard to prevent unecessary traffic and cost to the Azure subscription.
 ```
