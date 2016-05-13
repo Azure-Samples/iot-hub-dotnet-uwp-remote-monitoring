@@ -4,7 +4,7 @@ platforms: uwp, csharp, windows10
 author: olivierbloch
 ---
 
-# UWP application connection to Azure IoT Suite Remote Monitoring
+# UWP application connecting to Azure IoT Suite Remote Monitoring
 
 This sample shows how to run and connect a Universal Windows Platform application to an Azure IoT Suite Remote Monitoring Preconfigured Solution.
 This sample is usefull to try or demonstrate Azure IoT Suite. Here are some links to learn more on [Azure IoT Suite](https://azure.microsoft.com/en-us/documentation/suites/iot-suite/) and [Azure IoT Suite preconfigured solutions](https://azure.microsoft.com/en-us/documentation/articles/iot-suite-what-are-preconfigured-solutions/).
