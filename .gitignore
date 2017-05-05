@@ -11,3 +11,7 @@
 [Bb]in/
 [Oo]bj/
 
+*.lock.json
+
+*.nuget.props
+*.nuget.targets
