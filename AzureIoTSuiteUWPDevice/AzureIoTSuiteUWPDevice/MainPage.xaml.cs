@@ -90,6 +90,19 @@ namespace AzureIoTSuiteUWPDevice
         }
 
         [DataContract]
+        internal class TelemetryType
+        {
+            [DataMember]
+            internal string Name;
+
+            [DataMember]
+            internal string DisplayName;
+
+            [DataMember]
+            internal string Type;
+        }
+
+        [DataContract]
         internal class Thermostat
         {
             [DataMember]
@@ -100,6 +113,9 @@ namespace AzureIoTSuiteUWPDevice
 
             [DataMember]
             internal bool IsSimulatedDevice;
+
+            [DataMember]
+            internal TelemetryType[] Telemetry;
 
             [DataMember]
             internal string Version;
@@ -119,10 +135,6 @@ namespace AzureIoTSuiteUWPDevice
 
             [DataMember]
             internal double Humidity;
-
-            [DataMember]
-            internal double ExternalTemperature;
-
         }
 
         private string deviceId;
@@ -225,6 +237,9 @@ namespace AzureIoTSuiteUWPDevice
 
             thermostat.Commands = new Command[] { TriggerAlarm };
 
+            thermostat.Telemetry = new TelemetryType[] { new TelemetryType { Name = "Temperature", DisplayName = "Temperature", Type = "double" },
+                                                         new TelemetryType { Name = "Humidity", DisplayName = "Humidity", Type = "double" }};
+
             try
             {
                 var msg = new Message(Serialize(thermostat));
@@ -248,7 +263,6 @@ namespace AzureIoTSuiteUWPDevice
             data.DeviceId = deviceId;
             data.Temperature = Temperature + 0.55;
             data.Humidity = Humidity + 0.55;
-            data.ExternalTemperature = ExternalTemperature + 0.55;
 
             try
             {
@@ -382,14 +396,14 @@ namespace AzureIoTSuiteUWPDevice
             connectionString = "HostName=" + hostName + ";DeviceId=" + deviceId + ";SharedAccessKey=" + deviceKey;
             try
             {
-                deviceClient = DeviceClient.CreateFromConnectionString(connectionString, TransportType.Http1);
+                deviceClient = DeviceClient.CreateFromConnectionString(connectionString, TransportType.Mqtt);
                 await deviceClient.OpenAsync();
                 sendDeviceMetaData();
                 ReceivingTask = Task.Run(ReceiveDataFromAzure);
             }
-            catch
+            catch (Exception e)
             {
-                Debug.Write("Error while trying to connect to IoT Hub");
+                Debug.Write("Error while trying to connect to IoT Hub: " + e.Message);
                 deviceClient = null;
             }
         }
@@ -403,9 +417,9 @@ namespace AzureIoTSuiteUWPDevice
                     await deviceClient.CloseAsync();
                     deviceClient = null;
                 }
-                catch
+                catch (Exception e)
                 {
-                    Debug.Write("Error while trying close the IoT Hub connection");
+                    Debug.Write("Error while trying close the IoT Hub connection: " + e.Message);
                 }
             }
         }
